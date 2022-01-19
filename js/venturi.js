@@ -506,7 +506,7 @@ function magic() {
       document.getElementById("70a").innerHTML =
         "Area A<sub>2</sub>=1.45cm<sup>2</sup>";
       document.getElementById("72").innerHTML =
-        "Time taken (t)=" + mano40[4][p] + "sec";
+        "Time taken (t)=" + mano20[4][p] + "sec";
       document.getElementById("73").innerHTML =
         "Head Loss (H)=" +
         (12.6 * (mano20[0][p] - mano20[1][p])).toFixed(2) +
