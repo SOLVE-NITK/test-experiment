@@ -1,0 +1,639 @@
+html
+{
+	-moz-user-select     : none;
+	-khtml-user-select   : none;
+	-webkit-user-select  : none;
+	-o-user-select       : none;
+	user-select          : none;
+}
+
+#simscreen
+{
+position: relative;
+left:0px;
+top:0px;
+height: 600px; 
+width:800px;
+border:solid 1px;
+}
+
+
+#title{
+position:relative;
+left: 0px;
+top: 0px;
+height:40px;
+font-size: 24px;
+text-align:center;
+background-color: black;
+font-family: verdana;
+color: White;
+text-transform: uppercase; 
+}
+
+#title h3{
+padding-top:2px;
+margin:0px;}
+
+#container{
+        position:relative;
+        width:304px;
+        height:77px;
+        overflow:hidden;
+      }
+
+
+.stepfont
+{
+	font-family: verdana;
+	font-size: 14px;
+}
+
+
+.simsubscreen
+{
+position:absolute;
+left: 50px;
+top: 50px;
+height:530px;
+width:745px;
+
+}
+
+.incanvas
+{
+margin:5px 0 0 5px;
+padding:0;
+}
+#nextButton{
+    position: absolute;
+    left: 750px;
+    top: 530px;
+cursor:pointer;
+}
+#nextButton1{
+    position: absolute;
+    left: 750px;
+    top: 530px;
+cursor:pointer;
+}
+
+#prevButton{
+    position: absolute;
+    left: 0px;
+    top: 532px;
+cursor:pointer;
+}
+
+
+.steptext
+{
+display:inline;
+font-size:14px;
+font-family: verdana;
+}
+
+/* .steptext-6
+{
+display:inline;
+font-family: verdana;
+font-size:14px;
+}
+
+.steptext-2
+{
+	display:inline;
+	font-family: verdana;
+	font-size:14px;
+
+} */
+
+.circlebg
+{
+border-radius:100%;
+font-size:25px;
+color:#fff;
+text-align:center;
+background:#000
+}
+
+
+#copyright{
+    position: absolute;
+    left:45px;
+    top: 580px;
+    font-family: verdana; 
+    font-size:12px
+    }
+
+.close2
+{
+	-webkit-transform:rotate(360deg);
+	 transform:rotate(360eg);
+	 text-decoration: blink;
+}
+
+
+select:disabled{
+	color:black;
+}
+
+/* 
+
+#table
+{
+	padding:0px;
+	border: 1px solid black;
+	 border-collapse: collapse;
+    width: 60%;
+}
+th,td
+{
+	height:30px;
+} 
+
+.tmr
+{
+position: absolute;
+left:30px;
+top: 60px;
+height: 100px; 
+width:190px;
+border:solid 1px;
+}
+
+*/
+
+
+.inputStyle{
+	border:none;
+	border-bottom: 1px solid;
+	width:55px;
+	font-family:verdana;
+	font-size:14px;
+	text-align:center;
+}
+.resultStyle{
+	border:none;
+	border-bottom-style:double;
+	width:55px;
+	font-family:verdana;
+	font-size:14px;
+	text-align:center;
+	
+}
+
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    background-color: black;
+    color: #fff;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 14px;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 80%;
+    left: 50%;
+    margin-left: -60px;
+  }
+  
+  .tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+  }
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
+
+  input[type=text]:focus{
+    outline:none;
+}
+/* -------------------------------------- water ---------------------------------------- */
+/* Chrome, Safari, Opera */
+@-webkit-keyframes water-4 {
+0% {-webkit-transform: translate(0, 0 );}
+100% {-webkit-transform: translate(0, 40px );}
+}
+
+/* Standard syntax */
+@keyframes water-4 {
+    0% {transform: translate(0, 0);}
+    100% {transform: translate(0, 40px);}
+}
+
+@-webkit-keyframes water-1 {
+0% {-webkit-transform: translate(0, 0 );}
+100% {-webkit-transform: translate(0, -10px );}
+}
+
+/* Standard syntax */
+@keyframes water-1 {
+    0% {transform: translate(0, 0);}
+    100% {transform: translate(0, -10px);}
+}
+
+@-webkit-keyframes water-3 {
+0% {-webkit-transform: translate(0, 0 );}
+100% {-webkit-transform: translate(0, -20px );}
+}
+
+/* Standard syntax */
+@keyframes water-3 {
+    0% {transform: translate(0, 0);}
+    100% {transform: translate(0, -20px);}
+}
+
+@-webkit-keyframes water-5 {
+0% {-webkit-transform: translate(0, 0 );}
+100% {-webkit-transform: translate(0, -35px );}
+}
+
+/* Standard syntax */
+@keyframes water-5 {
+    0% {transform: translate(0, 0);}
+    100% {transform: translate(0, -35px);}
+}
+/* -------------------------------------- constant speed arrow ---------------------------------------- */
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes arrow-1 {
+0% {-webkit-transform: rotate(0deg);}    
+100% {-webkit-transform: rotate(-50deg);}
+}
+
+/* Standard syntax */
+@keyframes arrow-1 {
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(-50deg);}
+}
+/* -------------------------------------- constant speed arrow 2 ---------------------------------------- */
+/* Chrome, Safari, Opera */
+@-webkit-keyframes arrow-11 {
+0% {-webkit-transform: rotate(0deg);}    
+100% {-webkit-transform: rotate(70deg);}
+}
+
+/* Standard syntax */
+@keyframes arrow-11 {
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(70deg);}
+}
+
+
+
+/* -------------------------------------- ---------------------------------------- */
+/* Chrome, Safari, Opera */
+@-webkit-keyframes valveturn-2 {
+0% {-webkit-transform: rotate(0deg);}    
+100% {-webkit-transform: rotate(-10deg);}
+}
+
+/* Standard syntax */
+@keyframes valveturn-2 {
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(-10deg);}
+}
+
+@-webkit-keyframes valveturn-3 {
+0% {-webkit-transform: rotate(0deg);}    
+50% {-webkit-transform: rotate(-20deg);}
+100% {-webkit-transform: rotate(-45deg);}
+
+}
+
+/* Standard syntax */
+@keyframes valveturn-3 {
+    0% {transform: rotate(0deg);}
+    50% {transform: rotate(-20deg);}
+	100% {transform: rotate(-45deg);}
+}
+
+@-webkit-keyframes valveturn-5 {
+0% {-webkit-transform: rotate(0deg);}    
+100% {-webkit-transform: rotate(360deg);}
+}
+
+/* Standard syntax */
+@keyframes valveturn-5 {
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes valveturn-4 {
+0% {-webkit-transform: rotate(0deg);}    
+100% {-webkit-transform: rotate(-15deg);}
+}
+
+@keyframes valveturn-6 {
+    0% {transform: rotate(0deg);}
+    50% {transform: rotate(-30deg);}
+	    100% {transform: rotate(-60deg);}
+
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes valveturn-6 {
+0% {-webkit-transform: rotate(0deg);}    
+50% {-webkit-transform: rotate(-30deg);}
+    100% {transform: rotate(-60deg);}
+}
+
+
+
+@keyframes valveturn-7 {
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(1800deg);}
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes valveturn-7 {
+0% {-webkit-transform: rotate(0deg);}    
+100% {-webkit-transform: rotate(1800deg);}
+}
+
+/* Standard syntax */
+@keyframes valveturn-4 {
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(-15deg);}
+}
+
+
+/* Standard syntax */
+@keyframes water0 {
+    0% {transform: translate(0, 0);}
+    100% {transform: translate(0, -40px);}
+}
+
+/* Standard syntax */
+@keyframes water0 {
+    0% {transform: translate(0, 0);}
+    100% {transform: translate(0, -40px);}
+}
+
+
+/*-----------------------------------------hook gauge----------------------- */
+/* Chrome, Safari, Opera */
+@-webkit-keyframes myhook-1 {
+0% {-webkit-transform: translate(0, 0 );}
+50% {-webkit-transform: translate(0, -15px );}
+
+100% {-webkit-transform: translate(0, 8px );}
+}
+
+/* Standard syntax */
+@keyframes myhook-1 {
+    0% {transform: translate(0, 0);}
+	50% {transform: translate(0, -15px);}
+	
+	
+    100% {transform: translate(0, 8px);}
+}
+
+
+
+@-webkit-keyframes mymv-1 {
+0% {left: 50px; top:325px;}
+    50% {left: 130px; top:325px;}
+	100% {left: 50px; top:325px;}
+}
+
+/* Standard syntax */
+@keyframes mymv-1 {
+    
+	0% {left: 50px; top:325px;}
+    50% {left: 130px; top:325px;}
+	100% {left: 50px; top:325px;}
+}
+
+
+@-webkit-keyframes mymv-2 {
+from{left: 130px; top:345px;}
+to {left: 50px; top:345px;}
+
+}
+
+/* Standard syntax */
+@keyframes mymv-2{
+from {left: 130px; top:345px;}
+to {left: 50px; top:345px;}
+
+}
+
+@-webkit-keyframes mymv-3 {
+from {left: 110px; top:200px;}
+to {left: 150px; top:304px;}
+}
+
+/* Standard syntax */
+@keyframes mymv-3{
+ from {left: 110px; top:200px;}
+to {left: 150px; top:304px;}
+}
+
+@-webkit-keyframes mymv-4 {
+from {left: 160px; top:300px;}
+to {left: 415px; top: 230px;}
+}
+
+/* Standard syntax */
+@keyframes mymv-4{
+from  {left: 160px; top:300px;}
+to {left: 415px; top: 230px;}   
+}
+
+@-webkit-keyframes mymv-5 {
+from {left: 160px; top:300px;}
+to {left: 415px; top: 230px;}
+}
+
+/* Standard syntax */
+@keyframes mymv-5{
+from  {left: 160px; top:300px;}
+to {left: 415px; top: 230px;}   
+}
+
+
+@-webkit-keyframes myhook-2 {
+0% {-webkit-transform: translate(0, 0 );}
+50% {-webkit-transform: translate(0, -50px );}
+
+100% {-webkit-transform: translate(0, -15px );}
+}
+
+/* Standard syntax */
+@keyframes myhook-2 {
+    0% {transform: translate(0, 0px);}
+	50% {transform: translate(0, -50px);}
+	
+	
+    100% {transform: translate(0, -15px);}
+}
+
+@keyframes mymv-ln{
+from  {left: 114px; top: 64px;}
+to {left: 114px; top: 70px;}   
+}
+
+
+@keyframes mymv-arw{
+from  {left: 130px; top: 193px;}
+to {left: 130px; top: 196px;}   
+}
+
+@keyframes mymv-ndl{
+from  {left: 40.5px; top: 330px;}
+to {left: 40.5px; top: 336px;}   
+}
+
+
+@keyframes mymv-zmv{
+from  {left: 415px; top: 200px;}
+to {left: 415px; top: 203px;}   
+}
+
+@keyframes mymv-arw2{
+from  {left: 130px; top: 196px;}
+to {left: 130px; top: 250px;}   
+}
+
+
+
+@keyframes mymv-zmv2{
+from  {left: 415px; top: 203px;}
+to {left: 415px; top: 282px;}   
+}
+
+
+@keyframes mymv-zmv1{
+from  {left: 415px; top: 203px;}
+to {left: 415px; top: 279px;}   
+}
+
+@keyframes mymv-zmv3{
+from  {left: 415px; top: 203px;}
+to {left: 415px; top: 276px;}   
+}
+
+@keyframes mymv-zmv4{
+from  {left: 415px; top: 203px;}
+to {left: 415px; top: 275px;}   
+}
+
+@keyframes mymv-zmv5{
+from  {left: 415px; top: 203px;}
+to {left: 415px; top: 273px;}   
+}
+
+@keyframes hv3
+{
+	from{left: 155.5px; top: 398.75px;}
+	to{left: 20px; top:400px;}
+}
+@-webkit-keyframes hv3{
+	from{left: 155.5px; top: 398.75px;}
+	to{left: 20px; top:400px;}
+}
+
+@keyframes setupmv{
+	from{left: 55px; top: 96px;}
+	to{left: -100px; top: 96px;}
+}
+
+@-webkit-keyframes setupmv{
+	from{left: 55px; top: 96px;}
+	to{left: -100px; top: 96px;}
+}
+
+
+@keyframes zmpmv{
+	from{left: 300.5px; top:240px;}
+	to{left: 400.5px; top:240px;}
+}
+
+@-webkit-keyframes zmpmv{
+	from{left: 300.5px; top:240px;}
+	to{left: 400.5px; top: 240px;}
+}
+/*-----------------------------------------blink----------------------- */
+/*------------------------------------ZOOOM--------------*/
+.zoom
+{
+	 zoom: 150%; 
+} 
+
+
+
+/* ---------------------------------pipe valve -------------*/
+
+@keyframes pipe{
+    from {left: 220px; top:20px;}
+    to {left: 220px; top:150px;}
+    
+ }
+
+ 
+ @-webkit-keyframes pipe{
+    from {left: 220px; top:20px;}
+    to {left: 220px; top:150px;}
+    
+    }
+
+@keyframes pipes-1{
+	0%{transform:rotate(-20deg);}
+	100%{transform:rotate(30deg);}
+}
+
+@-webkit-keyframes pipes-1{
+	0%{-webkit-transform:rotate(-20deg);}
+	100%{-webkit-transform:rotate(30deg);}
+}
+
+@keyframes pipes-2{
+	0%{transform:rotate(10deg);}
+	100%{transform:rotate(-20deg);}
+}
+
+@-webkit-keyframes pipes-2{
+	0%{-webkit-transform:rotate(10deg);}
+	100%{-webkit-transform:rotate(-20deg);}
+}
+
+@keyframes pipes-3{
+	0%{transform:rotate(20deg);}
+	100%{transform:rotate(-15deg);}
+}
+
+@-webkit-keyframes pipes-3{
+	0%{-webkit-transform:rotate(20deg);}
+	100%{-webkit-transform:rotate(-15deg);}
+}
+
+@-webkit-keyframes vwater{
+	from{left:440px; top: 150px;}
+	to{left:500px; top: 150px;}
+}
+
+@keyframes vwater{
+	to{left:532px; top: 150px;}
+	from{left:376px; top: 150px;}
+	
+}
+	
+
+

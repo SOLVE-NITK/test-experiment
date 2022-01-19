@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+
+<title>SOLVE</title>
+<link rel="stylesheet" href="css/venturi.css" />
+<script type="text/javascript" src= "js/jquery-2.1.4.js"></script>
+<script type="text/javascript" src= "js/venturi.js"></script>
+<script type="text/javascript" src= "js/ej.web.all.js"></script>
+<link rel="stylesheet" href="css/mathstyle.css"/>
+<script>
+var simsubscreennum=0;
+var temp=0;
+var lnt=0;
+var min=0,max=6;
+var p=0;
+var mano50=[[43,42,41,40,39,38,37],
+          [28,29,30,31,32,33,34],
+          [15,13,11,9,7,5,3],
+          [189,163.8,138.6,113.4,88.2,63,37.8],
+          [10,12,13,14,15,17,21],
+          [3375,2812.5,2596.15,2410.71,2250,1985.29,1607.14],
+          [3704.033329,3448.267369,3171.944639,2869.131879,2530.336477,2138.52464,1656.494063],
+		  [0.91,0.82,0.82,0.84,0.89,0.93,0.97]]	
+   
+var mano40=[[43.1,42.1,41.1,40.1,39.1,38.1,37.1],
+          	[23.9,24.9,25.9,26.9,27.9,28.9,29.9],
+	   		[19.2,17.2,15.2,13.2,11.2,9.2],
+          	[241.92,216.72,191.52,166.32,141.12,115.92,90.72],
+          	[11.76,12.4,13.3,14.1,14.5,16,17.8],
+         	[2869.9,2721.77,2537.59,2393.62,2327.59,2109.38,1896.07],
+			[3233.653554,3060.603693,2877.164337,2681.203886,2469.743697,2238.39531,1980.200303],
+			[0.89,0.89,0.88,0.89,0.94,0.94,0.96]];	  
+		  
+var mano20=[[58,57,50.8,48.6,46.4,44.2,42],
+            [15,19,21,26,36,39,40],
+            [43,38,29.8,22.6,10.4,5.2,2],
+            [541.8,478.8,375.48,284.76,131.04,65.52,25.2],
+            [21,25,26,30,43,60,95],
+            [1607.14,1350.00,1298.08,1125.00,784.88,562.50,355.26],
+            [1685.31,1584.30,1402.99,1221.80,828.82,586.07,363.46],
+            [0.95,0.85,0.93,0.92,0.95,0.96,0.98]];
+
+
+</script>
+</head>
+
+<body style="margin:0" onload="select.reset()">
+ 
+<div id="simscreen">
+
+<div id="title"><h3>VENTURIMETER</h3></div>
+
+<div class="simsubscreen" id="canvas0">
+<h4 class="incanvas" style="font-family:verdana;" >Objective:</h4>
+<p class="incanvas" style="font-family:verdana; font-size:14px;">To determine co-efficient of discharge of the given venturimeter.</p>
+<h4 class="incanvas" style="font-family:verdana;">Apparatus used:</h4>
+<p class="incanvas" style="font-family:verdana; font-size:14px;" >Venturimeter, differential manometer, collecting tank, piezometer, stopwatch, measuring scale.</p>
+<img id="" style="position: absolute; left: 55px; top: 125px;" src="images/1.png"/>
+</div>
+	
+<div class="simsubscreen" id="canvas1" style="visibility:hidden">
+<strong id="titlestep" class="incanvas">STEP </strong>
+<span class="circlebg" id="stepnumber">&nbsp;1&nbsp;</span>
+<p id="pumptext" class="steptext" style="font-family:verdana; font-size:14px;">&nbsp;A pipe of required diameter is selected and others are kept in the closed position.</p>
+<img id="plsn" style="position: absolute; left: 35px; top: 80px;" src="images/pipe.png"/>
+<img id="50n" style="position: absolute; left: 93px; top: 94px;" src="images/50n.png"/>
+<img id="40n" style="position: absolute; left: 91.8px; top: 184.5px;" src="images/40n.png"/>
+<img id="20n" style="position: absolute; left: 91.5px; top: 270px;" src="images/20n.png"/>
+<form id="select" style="position: absolute; left: 300px; top:-50px;font-family:verdana; font-size:14px;visibility:hidden;" >
+Select the Pipe of required diameter:
+<select id="pipe">
+<option id="0" name="dia" value=""></option>
+<option id="50" name="dia" value="50mm">50mm</option>
+<option id="40" name="dia" value="40mm">40mm</option>
+<option id="20" name="dia" value="20mm">20mm</option>
+</select>
+</form>
+<p id="s1" style="position: absolute;font-family:verdana;font-size:14px;left: 300px; top:200px;"></p>
+<p id="s2" style="position: absolute;font-family:verdana;font-size:14px;left: 300px; top:250px;"></p>
+</div>
+
+<div class="simsubscreen" id="canvas2" style="visibility:hidden"> 
+<strong id="titlestep" class="incanvas">STEP</strong> 
+<span class="circlebg" id="stepnumber">&nbsp;2&nbsp;</span>
+<p id="pumptext-2" class="steptext" style="font-family:verdana; font-size:14px;">&nbsp;The main inlet valve is opened to allow water to flow through the selected diameter pipe. Open the pipe valve, and change the knot of manometer from isolate position to air-vent position to remove the air inside the pipe.</p> 
+<img id="2a" style="position: absolute; left: 15px; top: 96px;" src="images/2a.png"/>
+<p id="p1"   style="position: absolute;left: 530px; top:250px;visibility:hidden;font-family:verdana;font-size:14px;" >Isolate Position</p>
+<p id="p2"   style="position: absolute;left: 530px; top:250px;visibility:hidden;font-family:verdana;font-size:14px;" >Air-Vent Position</p>
+<img id="f50" style="position: absolute; left: 15px; top: 96px;visibility:hidden" src="images/f50.png"/>
+<img id="f40" style="position: absolute; left: 15px; top: 96px;visibility:hidden" src="images/f40.png"/>
+<img id="f20" style="position: absolute; left: 15px; top: 96px;visibility:hidden" src="images/f20.png"/>
+<img id="fw250" style="position: absolute; left: 15px; top: 96px;visibility:hidden" src="images/ff50.png"/>
+<img id="fw240" style="position: absolute; left: 15px; top: 96px;visibility:hidden" src="images/ff40.png"/>
+<img id="fw220" style="position: absolute; left: 15px; top: 96px;visibility:hidden" src="images/ff20.png"/>
+<img id="pvalve" style="position: absolute; left: 293px; top: 366px;cursor:zoom-in" src="images/pvalve.png"/>
+<img id="meter" style="position: absolute; left: 199.75px; top: 144.5px;cursor:zoom-in" src="images/meter.png"/>
+<img id="meter1" style="position: absolute; left: 200.35px; top: 144.5px;visibility:hidden" src="images/meter1.png"/>
+<img id="meter2" style="position: absolute; left: 525.35px; top: 115.5px;visibility:hidden;" src="images/meter2.png"/>
+<img id="b1" style="position: absolute; left: 572.55px; top: 142.5px;cursor:pointer;visibility:hidden" src="images/b.png"/>
+<img id="b2" style="position: absolute; left: 591.55px; top: 142.5px;cursor:pointer;visibility:hidden" src="images/b.png"/>
+<img id="b3" style="position: absolute; left: 552.55px; top: 140.5px;cursor:pointer;visibility:hidden;" src="images/b1.png"/>
+<img id="b4" style="position: absolute; left: 592.55px; top: 140.5px;cursor:pointer;visibility:hidden;" src="images/b1.png"/>
+<img id="pole2" style="position: absolute;left:495px; top: 120px;visibility:hidden" src="images/pole.png"/> 
+<img id="hv2"   style="position: absolute;left:490px; top: 150px;visibility:hidden" src="images/hv.png"/> 
+<img id="pole21" style="position: absolute;left:495px; top: 120px;visibility:hidden" src="images/pole.png"/> 
+<img id="hv21"   style="position: absolute;left:490px; top: 150px;visibility:hidden" src="images/hv.png"/> 
+<img id="circle2" style="position: absolute;cursor:pointer;visibility:hidden;" src="images/circle4.png"/>
+</div>
+ 
+ <div class="simsubscreen" id="canvas3" style="visibility:hidden"> 
+ <strong id="titlestep" class="incanvas">STEP</strong> 
+ <span class="circlebg" id="stepnumber">&nbsp;3&nbsp;</span>
+ <p id="pumptext-2" class="steptext" style="font-family:verdana; font-size:14px;">&nbsp;The knob is then kept in the read position and note down the manometer reading. </p> 
+<img id="flow350" style="position: absolute; left: 15px; top: 96px;visibility:hidden" src="images/ff50.png"/>
+<img id="flow340" style="position: absolute; left: 15px; top: 96px;visibility:hidden" src="images/ff40.png"/>
+<img id="flow320" style="position: absolute; left: 15px; top: 96px;visibility:hidden" src="images/ff20.png"/>
+<img id="fw350" style="position: absolute; left: 15px; top: 96px;visibility:hidden" src="images/flow50.png"/>
+<img id="fw340" style="position: absolute; left: 15px; top: 96px;visibility:hidden" src="images/flow40.png"/>
+<img id="fw320" style="position: absolute; left: 15px; top: 96px;visibility:hidden" src="images/flow20.png"/>
+<img id="meter3a" style="position: absolute; left: 525.35px; top: 115.5px;" src="images/meter2.png"/>
+<img id="b5" style="position: absolute; left: 552.55px; top: 140.5px;cursor:pointer;" src="images/b1.png"/>
+<img id="b6" style="position: absolute; left: 592.55px; top: 140.5px;cursor:pointer;" src="images/b1.png"/>
+<img id="b7" style="position: absolute; left: 572.55px; top: 120.5px;cursor:pointer;;visibility:hidden;" src="images/b.png"/>
+<img id="b8" style="position: absolute; left: 591.55px; top: 120.5px;cursor:pointer;;visibility:hidden;" src="images/b.png"/>
+<img id="wr1" style="position: absolute; left: 535px; top: 270px;visibility:hidden;" src="images/wr.png"/>
+<img id="wr2" style="position: absolute; left: 565px; top: 250PX;visibility:hidden;" src="images/wr.png"/>
+<img id="mano"   style="position: absolute;left:530px; top: 100px;visibility:hidden;" src="images/mano1.png"/> 
+<img id="pole34"   style="position: absolute;left:495px; top: 120px;visibility:hidden" src="images/pole.png"/> 
+<img id="hv34"   style="position: absolute;left:490px; top: 150px;visibility:hidden" src="images/hv.png"/> 
+<p id="p3"   style="position: absolute;left: 530px; top:250px;font-family:verdana;font-size:14px;" >Air-Vent Position</p>
+<p id="p4"   style="position: absolute;left: 540px; top:250px;visibility:hidden;font-family:verdana;font-size:14px;" >Read Position</p>
+<p id="lw" style="position: absolute; left: 500px; top: 370px;font-family:verdana;font-size:14px;"></p>
+<p id="rw" style="position: absolute; left: 500px; top: 420px;font-family:verdana;font-size:14px;"></p>
+<div class="tooltip" style="position:absolute;left:420px; top: 470px;">
+    <p id="rlh" style="font-family:verdana;font-size:14px;"></p>
+    <span class="tooltiptext">H(cm) = 12.6 x (LL - RL)</span>
+</div>
+</div>
+
+<div class="simsubscreen" id="canvas4" style="visibility:hidden">
+<strong class="incanvas">STEP</strong><span class="circlebg">&nbsp;4&nbsp;</span>
+<p class="steptext" style="font-family:verdana; font-size:14px;">&nbsp;Water is now allowed to flow through the selected venturimeter and this flow is made constant. At this flow rate the difference in pressure between inlet and throat is measured.</p>
+<img id="flow450" style="position: absolute; left: 15px; top: 96px;visibility:hidden" src="images/f50.png"/>
+<img id="flow440" style="position: absolute; left: 15px; top: 96px;visibility:hidden" src="images/f40.png"/>
+<img id="flow420" style="position: absolute; left: 15px; top: 96px;visibility:hidden" src="images/f20.png"/>
+<img id="fw450" style="position: absolute; left: 15px; top: 96px;visibility:hidden" src="images/flow50.png"/>
+<img id="fw440" style="position: absolute; left: 15px; top: 96px;visibility:hidden" src="images/flow40.png"/>
+<img id="fw420" style="position: absolute; left: 15px; top: 96px;visibility:hidden" src="images/flow20.png"/>
+<img id="flow" style="position: absolute; left: 10px; top: 345px;visibility:hidden;" src="images/flow.png"/>
+<img id="vwater"   style="position: absolute;left:376px; top: 150px;visibility:hidden;" src="images/vwater.png"/> 
+<img id="v"   style="position: absolute;left:375px; top: 150px;visibility:hidden;" src="images/v.png"/>
+<p id="d1" style="position: absolute; left: 376px; top: 150px;font-family:verdana;font-size:14px;"></p> 
+<p id="d1a" style="position: absolute; left: 376px; top: 150px;font-family:verdana;font-size:14px;"></p> 
+<p id="d1b" style="position: absolute; left: 376px; top: 150px;font-family:verdana;font-size:14px;"></p> 
+<p id="d2" style="position: absolute; left: 376px; top: 200px;font-family:verdana;font-size:14px;"></p> 
+<p id="d2a" style="position: absolute; left: 376px; top: 200px;font-family:verdana;font-size:14px;"></p> 
+<p id="d2b" style="position: absolute; left: 376px; top: 200px;font-family:verdana;font-size:14px;"></p> 
+ </div>
+
+<div class="simsubscreen" id="canvas5" style="visibility:hidden;">
+<strong class="incanvas">STEP</strong><span class="circlebg">&nbsp;5&nbsp;</span>
+<p class="steptext" style="font-family:verdana; font-size:14px;" >&nbsp;The exit valve of the collecting tank is closed and time taken for the tank water to rise by 5cm is noted.</p>
+<img id="flow550" style="position: absolute; left: 15px; top: 96px;visibility:hidden" src="images/flow50.png"/>
+<img id="flow540" style="position: absolute; left: 15px; top: 96px;visibility:hidden" src="images/flow40.png"/>
+<img id="flow520" style="position: absolute; left: 15px; top: 96px;visibility:hidden" src="images/flow20.png"/>
+<img id="fw550" style="position: absolute; left: 15px; top: 96px;visibility:hidden" src="images/flow50.png"/>
+<img id="fw540" style="position: absolute; left: 15px; top: 96px;visibility:hidden" src="images/flow40.png"/>
+<img id="fw520" style="position: absolute; left: 15px; top: 96px;visibility:hidden" src="images/flow20.png"/>
+<img id="circle5" style="position: absolute;left: 8px; top: 317.5px;cursor:pointer;" src="images/circle4.png"/>
+<img id="flow5" style="position: absolute; left: 10px; top: 345px;visibility:hidden" src="images/flow.png"/>
+<img id="wr5" style="position: absolute; left: 466.5px; top: 260px;visibility:hidden" src="images/wr1.png"/>
+<img id="mtube5" style="position: absolute; left: 463px; top: 45px;visibility:hidden" src="images/mtube.png"/>
+<img id="swatch" style="position: absolute; left: 539px; top: 140px;visibility:hidden" src="images/swatch.png"/>
+<img id="needle" style="position: absolute; left: 607px; top: 211px;visibility:hidden" src="images/needle.png"/>
+<p id="time" style="position:absolute;left: 370px;top: 360px;font-family:verdana;font-size:14px;visibility:hidden"> </p>
+</div>
+ 
+ <div class="simsubscreen" id="canvas6" style="visibility:hidden">
+<strong class="incanvas" style="position:absolute;top: 10px; left:50px;font-family: verdana;"><h2>Observations</h2></strong>
+<p id="70c" style="position:absolute;left: 150px; top: 60px;font-family:verdana;font-size:14px;">d1</p>
+<p id="70d" style="position:absolute;left: 150px; top: 90px;font-family:verdana;font-size:14px;">d2</p>
+<p id="70" style="position:absolute;left:150px; top: 120px;font-family:verdana;font-size:14px;">A1</p>
+<p id="70a" style="position:absolute;left: 150px; top: 150px;font-family:verdana;font-size:14px;">A2</p>
+<p id="70b" style="position:absolute;left: 150px; top: 180px;font-family:verdana;font-size:14px;">Area of collecting tank (A)&nbsp;=&nbsp;6750cm<sup>2</sup> </p>
+<p id="71" style="position:absolute;left: 150px; top: 210px;font-family:verdana;font-size:14px;">Rise (h)= 5cm</p>
+<p id="72" style="position:absolute;left: 150px; top: 240px;font-family:verdana;font-size:14px;">Time taken (t)=  </p>
+<p id="73" style="position:absolute;left: 150px; top: 270px;font-family:verdana;font-size:14px;">Head Loss (H)= </p>
+<p id="73g" style="position:absolute;left: 150px; top: 300px;font-family:verdana;font-size:14px;">Acceleration due to gravity (g) = 981 cm/sec<sup>2</sup> </p>
+<strong class="incanvas" style="position:absolute;top: 330px; left:50px;font-family: verdana;"><h2>Calculations</h2></strong>
+<div class="tooltip" style="position:absolute;left: 150px; top: 380px;">
+    <p id="74" style="font-family:verdana;font-size:14px;"></p>
+    <span class="tooltiptext">Q<sub>act</sub> (cm<sup>3</sup>/sec)= <span class="frac"><sup>A x h</sup><span>&frasl;</span><sub>t</sub></span></span>
+</div>
+<div class="tooltip" style="position:absolute;left: 150px; top:420px;">
+    <p id="75" style="font-family:verdana;font-size:14px;"></p>
+
+    <span class="tooltiptext">Q<sub>th</sub> (cm<sup>3</sup>/sec) = <span class="frac"><sup>A<sub>1</sub> x A<sub>2</sub> x &radic;(2gH)</sup><span>&frasl;</span><sub>&radic;(A<sub>1</sub><sup>2</sup> - A<sub>2</sub><sup>2</sup>)</span></span>
+</div>
+<div class="tooltip" style="position:absolute;left: 150px; top: 460px;">
+    <p id="76" style="font-family:verdana;font-size:14px;"></p>
+    <span class="tooltiptext">C<sub>d</sub> = <span class="frac"><sup>Q<sub>act</sub></sup><span>&frasl;</span><sub>Q<sub>th</sub></span></span>
+</div>
+</div>
+
+<div class="simsubscreen" id="canvas7" style="visibility:hidden">
+<center><h2>Characteristic Curves<h2></center></p>
+<center><span id="step7text1" style="border: 2px solid; position:absolute;top: 60px; left:290px;cursor:pointer;">&nbsp;&nbsp; Q<sub>act</sub> Vs H &nbsp;&nbsp;</span></center>
+<div id="chartContainer" style="height: 440px; width: 700px;margin-left:10px;margin-right:100px;margin-top:50px"></div>
+</div>
+
+<div class="simsubscreen" id="canvas8" style="visibility:hidden; background-color:white;" >
+<strong class="incanvas" style="position:absolute;top: 30px; left:100px"><h2>Graphical Solution</h2></strong>
+<p id="can7-7" style="position:absolute;top: 100px; left:220px">Slope, n =  </p>
+<p id="can7-8" style="position:absolute;top: 130px; left:220px">k =  </p>
+<p id="can7-9" style="position:absolute;top: 160px; left:220px">Coefficient of discharge, C<sub>d</sub> =  </p>
+</div>
+
+<div id="">	
+<p id="trial" style="text-transform: uppercase;visibility :hidden;font-weight: bold;"><strong>Trial = </strong></p>
+</div>
+	
+<div id="nav">
+	<img id="nextButton" onclick="navNext(); " src="images/Next.png" />
+</div>
+
+<img class ="" id="arr" style="visibility:hidden;" src="images/arr.png"/>
+
+<p class ="close2" id="close1" style="position:absolute;visibility:hidden;font-family:verdana; font-size:14px;left: 280px; top:150px; height: 30px; z-index: 10;">CLOSED</p>
+<p class ="close2" id="close2" style="position:absolute;visibility:hidden;font-family:verdana; font-size:14px;left: 280px; top:242px; height: 30px; z-index: 10;">CLOSED</p>
+<p class ="close2" id="close3" style="position:absolute;visibility:hidden;font-family:verdana; font-size:14px;left: 280px; top:335px; height: 30px; z-index: 10;">CLOSED</p>
+
+<div id="copyright"> &copy; 2016 - <script>document.write(new Date().getFullYear())</script> SOLVE - The Virtual Lab @ NITK Surathkal, Department of Water Resources & Ocean Engineering</div>
+</body>
+</html>
